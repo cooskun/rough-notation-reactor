@@ -3,10 +3,10 @@ module.exports = {
   npm: {
     esModules: true,
     umd: {
-      global: 'rrr',
+      global: 'RoughNotationReactor',
       externals: {
-        react: 'React'
-      }
-    }
-  }
+        react: 'React',
+      },
+    },
+  },
 }
