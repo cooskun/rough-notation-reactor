@@ -10,14 +10,17 @@ const RoughNotation = ({
   color,
   strokeWidth,
   padding,
+  show = true,
+  remove = false,
   as: Element = 'span',
   children,
   ...props
 }) => {
-  const ref = useRef()
+  const el = useRef()
+  const annotation = useRef({})
 
   useEffect(() => {
-    const annotation = annotate(ref.current, {
+    annotation.current = annotate(el.current, {
       type,
       animate,
       animationDuration,
@@ -26,11 +29,16 @@ const RoughNotation = ({
       strokeWidth,
       padding,
     })
-    annotation.show()
+
+    return () => annotation.current.remove()
   }, [])
 
+  useEffect(() => {
+    show ? annotation.current.show() : annotation.current.hide()
+  }, [show])
+
   return (
-    <Element ref={ref} {...props}>
+    <Element ref={el} {...props}>
       {children}
     </Element>
   )
@@ -45,15 +53,7 @@ RoughNotation.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.element]),
   padding: PropTypes.number,
   strokeWidth: PropTypes.number,
-  type:
-    PropTypes.oneOf[
-      ('underline',
-      'box',
-      'circle',
-      'highlight',
-      'strike-through',
-      'crossed-off')
-    ],
+  type: PropTypes.string,
 }
 
-export default RoughNotation
+export default React.memo(RoughNotation)
