@@ -24,6 +24,7 @@ const Item = styled(Example)`
 
 const Demo = () => {
   const [show, setShow] = useState(true)
+  const [groupShow, setGroupShow] = useState(false)
 
   return (
     <div>
@@ -67,11 +68,27 @@ const Demo = () => {
         strokeWidth is 10
       </Item>
 
-      <h2>Show, Hide, Remove</h2>
+      <h2>Show, Hide</h2>
       <Wrapper>
         <button onClick={() => setShow(true)}>Show</button>
         <button onClick={() => setShow(false)}>Hide</button>
         <Item show={show}>Show</Item>
+      </Wrapper>
+
+      <h2>Group Show, Hide</h2>
+      <Wrapper>
+        <button onClick={() => setGroupShow(true)}>Show</button>
+        <button onClick={() => setGroupShow(false)}>Hide</button>
+        <Item show={groupShow}>Underline</Item>
+        <Item type="box" show={groupShow}>
+          Box
+        </Item>
+        <Item type="circle" show={groupShow}>
+          Circle
+        </Item>
+        <Item type="crossed-off" show={groupShow}>
+          Crossed Off
+        </Item>
       </Wrapper>
     </div>
   )

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { annotate } from 'rough-notation'
 
@@ -11,7 +11,6 @@ const RoughNotation = ({
   strokeWidth,
   padding,
   show = true,
-  remove = false,
   as: Element = 'span',
   children,
   ...props
@@ -45,6 +44,7 @@ const RoughNotation = ({
 }
 
 RoughNotation.propTypes = {
+  type: PropTypes.string,
   color: PropTypes.string,
   animate: PropTypes.bool,
   animationDelay: PropTypes.number,
@@ -53,7 +53,6 @@ RoughNotation.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.element]),
   padding: PropTypes.number,
   strokeWidth: PropTypes.number,
-  type: PropTypes.string,
 }
 
 export default React.memo(RoughNotation)
