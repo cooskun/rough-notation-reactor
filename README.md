@@ -28,14 +28,12 @@ const Component = () => {
 
 ## Types
 
-| Type                |
-| ------------------- |
-| underline (default) |
-| box                 |
-| circle              |
-| highlight           |
-| strike-through      |
-| crossed-off         |
+- underline (default)
+- box
+- circle
+- highlight
+- strike-through
+- crossed-off
 
 ```javascript
 import RoughNotation from 'rough-notation-reactor'
@@ -90,6 +88,22 @@ const Component = () => {
 | color      | String     | currentColor |
 | padding    | Number     | 5            |
 | strokeWith | Number     | 1            |
+
+```javascript
+import RoughNotation from 'rough-notation-reactor'
+
+const Component = () => {
+  return (
+    <RoughNotation
+      color="red"
+      padding={20}
+      strokeWidth={2}
+      style={{ fontSize: '3rem' }}>
+      Styled Notation
+    </RoughNotation>
+  )
+}
+```
 
 ## Show/Hide
 
