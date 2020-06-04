@@ -10,6 +10,7 @@ const RoughNotation = ({
   color,
   strokeWidth,
   padding,
+  iterations,
   show = true,
   as: Element = 'span',
   children,
@@ -24,6 +25,7 @@ const RoughNotation = ({
       animate,
       animationDuration,
       animationDelay,
+      iterations,
       color,
       strokeWidth,
       padding,
@@ -53,6 +55,7 @@ RoughNotation.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.element]),
   padding: PropTypes.number,
   strokeWidth: PropTypes.number,
+  iterations: PropTypes.number,
 }
 
 export default React.memo(RoughNotation)

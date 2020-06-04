@@ -55,6 +55,11 @@ const Demo = () => {
       <h2>Animation Delay</h2>
       <Item animationDelay={1000}>Animation delay is 1000ms</Item>
 
+      <h2>Iterations</h2>
+      <Item iterations={20} animationDuration={5000}>
+        Iterate 20 times
+      </Item>
+
       <h2>Color</h2>
       <Item color="red">Notation color is red</Item>
 
